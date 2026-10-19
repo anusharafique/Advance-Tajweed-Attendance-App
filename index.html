@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Tajweed Attendance App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <div class="brand-icon">۞</div>
+                <div>
+                    <h2>Advance Tajweed</h2>
+                    <p>Attendance Manager</p>
+                </div>
+            </div>
+
+            <div class="batch-box">
+                <span>YOUR CLASS</span>
+                <h3>Batch 19</h3>
+                <p>Advance Tajweed Course</p>
+            </div>
+
+            <nav>
+                <a href="#dashboard" class="nav-link active" data-page="dashboard">⌂ Dashboard</a>
+                <a href="#students" class="nav-link" data-page="students">♙ Students</a>
+                <a href="#attendance" class="nav-link" data-page="attendance">▣ Daily Attendance</a>
+                <a href="#history" class="nav-link" data-page="history">◷ Attendance History</a>
+                <a href="#results" class="nav-link" data-page="results">☆ Final Marks</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="gold-line"></div>
+                <p class="arabic">وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا</p>
+                <p class="sidebar-note">Learn • Recite • Perfect</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+                <div>
+                    <p class="welcome">ASSALAM-O-ALAIKUM 👋</p>
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="top-badge">
+                    <span class="live-dot"></span>
+                    Batch 19
+                </div>
+            </header>
+
+            <section class="page active-page" id="dashboard">
+                <div class="hero">
+                    <div>
+                        <span class="hero-tag">✦ YOUR TEACHING SPACE</span>
+                        <h2>Advance Tajweed<br><span>Attendance App</span></h2>
+                        <p>Manage your students, record attendance and calculate final marks with ease.</p>
+                        <button class="gold-btn" data-go="attendance">Take Attendance →</button>
+                    </div>
+                    <div class="hero-symbol">۞</div>
+                    <div class="hero-decoration"></div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card pink-card">
+                        <div class="stat-icon">♙</div>
+                        <p>Total Students</p>
+                        <h2 id="totalStudents">0</h2>
+                        <span>Registered students</span>
+                    </div>
+
+                    <div class="stat-card blue-card">
+                        <div class="stat-icon">▣</div>
+                        <p>Total Classes</p>
+                        <h2 id="totalClasses">0</h2>
+                        <span>Classes recorded</span>
+                    </div>
+
+                    <div class="stat-card green-card">
+                        <div class="stat-icon">✓</div>
+                        <p>Present Today</p>
+                        <h2 id="presentToday">0</h2>
+                        <span>Students present</span>
+                    </div>
+
+                    <div class="stat-card gold-card">
+                        <div class="stat-icon">×</div>
+                        <p>Absent Today</p>
+                        <h2 id="absentToday">0</h2>
+                        <span>Students absent</span>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h3>Recent Attendance</h3>
+                                <p>Your latest class records</p>
+                            </div>
+                            <button class="text-btn" data-go="history">View All →</button>
+                        </div>
+                        <div id="recentAttendance" class="table-wrap"></div>
+                    </div>
+
+                    <div class="panel quick-panel">
+                        <h3>Quick Actions</h3>
+                        <p>Manage your class easily.</p>
+                        <button class="action-btn" data-go="students"><span>＋</span><div><b>Add Student</b><small>Register a new student</small></div></button>
+                        <button class="action-btn" data-go="attendance"><span>✓</span><div><b>Mark Attendance</b><small>Record today's class</small></div></button>
+                        <button class="action-btn" data-go="results"><span>☆</span><div><b>Final Marks</b><small>View marks out of 10</small></div></button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page" id="students">
+                <div class="section-heading">
+                    <div><h2>Student Management</h2><p>Add and manage your Batch 19 students.</p></div>
+                    <span class="count-badge" id="studentCount">0 / 20 Students</span>
+                </div>
+
+                <div class="panel form-panel">
+                    <h3>＋ Add New Student</h3>
+                    <form id="studentForm">
+                        <div class="form-grid">
+                            <label>Student Name<input type="text" id="studentName" placeholder="Enter full name" required maxlength="80"></label>
+                            <label>Roll Number<input type="text" id="rollNumber" placeholder="e.g. AT-01" required maxlength="20"></label>
+                        </div>
+                        <button class="primary-btn" type="submit">＋ Add Student</button>
+                    </form>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div><h3>Registered Students</h3><p>Your complete student list</p></div>
+                        <input type="search" id="studentSearch" class="search-input" placeholder="Search student...">
+                    </div>
+                    <div id="studentsTable" class="table-wrap"></div>
+                </div>
+            </section>
+
+            <section class="page" id="attendance">
+                <div class="section-heading">
+                    <div><h2>Daily Attendance</h2><p>Mark attendance for each class.</p></div>
+                    <span class="count-badge">10 Marks Total</span>
+                </div>
+
+                <div class="panel">
+                    <div class="attendance-toolbar">
+                        <label>Class Date<input type="date" id="attendanceDate" required></label>
+                        <button class="secondary-btn" id="markAllPresent">✓ Mark All Present</button>
+                    </div>
+                    <div class="attendance-summary">
+                        <span>Present: <b id="attendancePresent">0</b></span>
+                        <span>Absent: <b id="attendanceAbsent">0</b></span>
+                        <span>Total: <b id="attendanceTotal">0</b></span>
+                    </div>
+                    <div id="attendanceList" class="attendance-list"></div>
+                    <button class="primary-btn save-btn" id="saveAttendance">Save Attendance ✓</button>
+                    <p class="helper-text">You can save one attendance record per date. Saving again updates that date's record.</p>
+                </div>
+            </section>
+
+            <section class="page" id="history">
+                <div class="section-heading">
+                    <div><h2>Attendance History</h2><p>Review previously saved classes.</p></div>
+                    <button class="secondary-btn" id="printHistory">Print Report ⎙</button>
+                </div>
+                <div class="panel">
+                    <div id="historyTable" class="table-wrap"></div>
+                </div>
+            </section>
+
+            <section class="page" id="results">
+                <div class="section-heading">
+                    <div><h2>Final Attendance Marks</h2><p>Marks are calculated out of 10.</p></div>
+                    <button class="secondary-btn" id="printResults">Print Results ⎙</button>
+                </div>
+
+                <div class="marks-info">
+                    <div class="marks-icon">✦</div>
+                    <div>
+                        <h3>Attendance Marks Formula</h3>
+                        <p>Marks = (Classes Present ÷ Total Recorded Classes) × 10</p>
+                        <small>Only saved classes count. If no classes have been recorded, marks will show as —.</small>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div id="resultsTable" class="table-wrap"></div>
+                </div>
+            </section>
+
+            <footer>
+                <span>✦ Advance Tajweed Attendance App</span>
+                <span>Batch 19 • Learn with Excellence</span>
+            </footer>
+        </main>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
