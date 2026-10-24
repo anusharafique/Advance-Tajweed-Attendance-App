@@ -1,4 +1,3 @@
-
 const MAX_STUDENTS = 20;
 const MAX_MARKS = 10;
 const STORAGE_KEY = "advanceTajweedBatch19";
